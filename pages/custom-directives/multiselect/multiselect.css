@@ -1,0 +1,8 @@
+.multiselect-dropdown {
+	display: inline-block;
+}
+.multiselect-dropdown input[type="checkbox"] {
+	line-height: 20px;
+	margin-left: 10px;
+	margin-top: 0;
+}

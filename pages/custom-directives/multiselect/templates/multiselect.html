@@ -1,0 +1,14 @@
+<div class="multiselect-dropdown">
+	<div class="btn-group" ng-class="{'open':isOpen}">
+	  <button type="button" class="btn btn-default dropdown-toggle" ng-click="toggleDropdown()">
+	    {{displayText}} <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu">
+	    <li ng-repeat="i in items">
+			<input type="checkbox" ng-model="i.selected" ng-change="toggleSelect(i)"/>
+			{{i.name}}
+		</li>
+	  </ul>
+	</div>
+</div>
+

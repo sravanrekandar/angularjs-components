@@ -1,0 +1,12 @@
+(function(){
+	'use strict';
+	window.myApp.factory('HomeService', function($http){
+		var factory = {};
+		
+		factory.getDataAsync = function(){
+			
+		};
+
+		return factory;
+	});
+}());
