@@ -1,0 +1,44 @@
+<h3>MultiSelectDropDown</h3>
+<p>
+desc..
+</p>
+<div ng-controller="srvMultiselectDropdownCtrl">
+	Single Select:
+	<div srv-multiselect-dropdown ng-model="selectedHeros" items="heros" on-selection-change="updateNewSelection()" default-text="Select a Hero" restrict-single></div>
+	Multi Select:
+	<div srv-multiselect-dropdown ng-model="selectedFruits" items="fruits" on-selection-change="updateNewSelection()" default-text="Select Fruits"></div>
+	<section>
+		<h3>Models</h3>
+		<pre class="span3 pull-left">Selected Heros: {{selectedHeros | json}}</pre>
+		<pre class="span3 pull-left">Selected Fruits: {{selectedFruits | json}}</pre>
+	</section>
+	<div class="clear"></div>
+</div>
+<div class="code-snippets">
+	<ul class="nav nav-tabs">
+		<li class="active"><a role="tab" href="#srv-multiselect-dropdown-markup1">Usage</a></li>
+		<li><a role="tab" href="#srv-multiselect-dropdown-markup2">srvMultiSelectDropdown.js</a></li>
+		<li><a role="tab" href="#srv-multiselect-dropdown-markup3">srvMultiSelectDropdownCtrl.js</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="srv-multiselect-dropdown-markup1">
+<srv-prettify>&lt;multiselect 
+	items="heros" 
+	ng-model="selectedHeros"
+	restrict-single>
+&lt;/multiselect>
+&lt;multiselect 
+	items="fruits" 
+	ng-model="selectedFruits">
+&lt;/multiselect></srv-prettify>
+		</div>
+		<div class="tab-pane" id="srv-multiselect-dropdown-markup2">
+			<div srv-prettify file-name="'/angularjs-components/js/directives/srvMultiSelectDropdown.js'" >
+			</div>
+		</div>
+		<div class="tab-pane" id="srv-multiselect-dropdown-markup3">
+			<div srv-prettify file-name="'/angularjs-components/js/controllers/srv-directive-examples/srvMultiSelectDropdownCtrl.js'" >
+			</div>
+		</div>
+	</div>
+</div>

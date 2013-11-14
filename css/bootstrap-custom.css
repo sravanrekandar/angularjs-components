@@ -1,0 +1,7 @@
+ol.linenums {
+	margin-left: 0;
+}
+.prettyprinted {
+	max-height: 300px;
+	overflow: auto;
+}

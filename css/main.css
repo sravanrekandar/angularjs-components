@@ -14,5 +14,12 @@ body {
 
 .footer {
 	background-color: #CFCFCF;
+	margin-top: 50px;
+}
+.code-snippets {
+	margin-top: 40px;
+}
+.clear {
+	clear: both;
 }
 /*------------------------------------*/

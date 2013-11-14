@@ -1,8 +1,3 @@
-/**
-* Author: SRAVANREKANDAR
-* Last Modified :20131106
-*/
-
 /*globals
 	angular: true,
 	myApp: true
@@ -22,7 +17,7 @@
 			replace: true,
 			link: function(scope, element, attr){
 				scope.selectedItems = scope.ngModel;
-				scope.isMultiselect = (typeof attr.multiselect !== 'undefined');
+				scope.restrictSingle = (typeof attr.restrictSingle !== 'undefined');
 				
 				scope.defaultDisplayText = 'Select an Item';
 				scope.displayText = scope.defaultDisplayText;
@@ -45,7 +40,7 @@
 				
 				function updateDisplayText() {
 					var str = '';
-					if(!scope.isMultiselect) {
+					if(scope.restrictSingle) {
 						str = scope.selectedItems[0].name;
 					} else if (scope.selectedItems.length > 0) {
 						str = scope.selectedItems.length + ' item(s) selected';
@@ -57,7 +52,7 @@
 				}
 				
 				function addItem(item) {
-					if(!scope.isMultiselect) { // Incase of normal select
+					if(scope.restrictSingle) { // Incase of normal select
 						scope.isOpen = false;
 						angular.forEach(scope.items, function(el){
 							el.selected = false;
@@ -76,7 +71,7 @@
 					if(index !== -1) {
 						scope.selectedItems.splice(index, 1);
 					}
-				};
+				}
 
 				/******** Public Methods ********/
 				scope.toggleSelect = function(item){
@@ -93,16 +88,16 @@
 					scope.isOpen = !scope.isOpen;
 				};
 				
-				
-
-				element.bind('click', function(event) {
-					event.stopPropagation();
+				$document.bind('click', function(evt) {
+					var target = angular.element(evt.target).closest(element);
+					if(target.length === 0){
+						scope.isVisible = false;
+						scope.$apply();
+					}
 				});
 
-				$document.bind('click', function(){
-					scope.isOpen = false;
-					scope.$apply();
-				});
+				// Init
+				updateSelectedList();
 			}
 		};
 	}]);

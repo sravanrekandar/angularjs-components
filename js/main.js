@@ -1,4 +1,9 @@
-(function(undefined) {
+(function($, undefined) {
 	'use strict';
-	// ...code
-}()); // End of global wrapper
+
+	$('body').on('click', 'a[role="tab"]', function(e) {
+		e.preventDefault();
+		$(this).tab('show');
+	});
+
+}(jQuery)); // End of global wrapper

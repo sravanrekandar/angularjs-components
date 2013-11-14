@@ -1,0 +1,21 @@
+.color-picker-wrapper {
+
+}
+.color-picker-wrapper input[type="number"] {
+	width: 66px;
+}
+.color-picker-wrapper input[type="range"] {
+	width: 100px;
+	box-shadow: none;
+	padding: 0;
+}
+.color-picker-wrapper .sliders, .color-picker-wrapper .picker {
+	float: left;
+}
+.color-picker-wrapper .color-block {
+	width: 100px;
+	height: 100px;
+	padding: 4px;
+	border: 1px solid #cdcdcd;
+	background-color: #cccccc;
+}

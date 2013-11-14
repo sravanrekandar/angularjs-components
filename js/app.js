@@ -3,10 +3,11 @@
 */
 (function () {
 	'use strict';
-	angular.module('myApp', [])
+	angular.module('srvApp', ['srvNg.directives'])
 		.config(function($routeProvider) {
 			$routeProvider
 			.when('/home', {templateUrl: 'partials/home.html'})
+			.when('/directives', {templateUrl: 'partials/directives.html'})
 			.otherwise({redirectTo: '/home'});
 		});
 }());

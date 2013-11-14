@@ -1,0 +1,25 @@
+<div class="color-picker-wrapper">
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<div class="sliders">
+				<div class="color-slider">
+					R: <input type="number" class="form-control" name="red" min="0" max="255" ng-model="color.red">
+					<input type="range" class="form-control" min="0" max="255" ng-model="color.red" ng-change="updateVal(color, 'red')">
+				</div>
+				<div class="color-slider">
+					G: <input type="number" class="form-control" name="red" min="0" max="255" ng-model="color.green">
+					<input type="range" class="form-control" min="0" max="255" ng-model="color.green" ng-change="updateVal(color, 'green')">
+				</div>
+				<div class="color-slider">
+					B: <input type="number" class="form-control" name="red" min="0" max="255" ng-model="color.blue">
+					<input type="range" class="form-control" min="0" max="255" ng-model="color.blue" ng-change="updateVal(color, 'blue')">
+				</div>
+			</div>
+			<div class="picker">
+				<div class="color-block" style="background-color:rgb({{color.red}},{{color.green}},{{color.blue}})">
+				</div>
+			</div>
+		</div>
+		
+	</form>
+</div>
