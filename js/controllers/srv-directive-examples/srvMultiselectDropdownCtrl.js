@@ -20,5 +20,9 @@
 
 			$scope.selectedHeros = [];
 			$scope.selectedFruits = [];
+
+			$scope.updateNewSelection = function() {
+				//.. 
+			};
 		});
 }());

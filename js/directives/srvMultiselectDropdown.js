@@ -38,6 +38,7 @@ var rootPath = rootPath || '/angularjs-components/';
                             }
                         });
                     });
+                    scope.onSelectionChange();
                 }
                 
                 function updateDisplayText() {
