@@ -15,17 +15,11 @@
 		<div id="body">
 			<div id="header"></div>
 			<!-- content Place holder -->
-			<div class="container page-container">
+
+			<div class="container page-container" ng-controller="examplePagesCtrl">
 				<h1>Custom Directives</h1>
 				<hr />
-				<section ng-include="'/angularjs-components/partials/directives/srv-ng-setup.html'">
-				</section>
-				<section ng-include="'/angularjs-components/partials/directives/srv-simple-markup-example.html'">
-				</section>
-				<hr />
-				<section ng-include="'/angularjs-components/partials/directives/srv-range-example.html'"></section>
-				<section ng-include="'/angularjs-components/partials/directives/srv-color-picker-example.html'"></section>
-				<section ng-include="'/angularjs-components/partials/directives/srv-multiselect-dropdown-example.html'"></section>
+				<section ng-repeat="p in examplePartials" ng-include="p"></section>
 			</div>	
 
 			<div id="footer" class="footer">
@@ -47,6 +41,9 @@
 		<script src="../../js/vendor/bootstrap/tab.js"></script>		
 		<script src="../../js/vendor/prettify.js"></script>		
 		<script src="../../js/vendor/angular-1.0.8/angular.min.js"></script>
+		<script src="../../js/vendor/ui-bootstrap-0.6.0.js"></script>
+		<script src="../../js/vendor/ui-bootstrap-tpls-0.6.0.js"></script>
+		<script src="../../js/vendor/d3.v3/d3.v3.min.js"></script>
 
 		
 		<!-- Application files -->
@@ -58,15 +55,18 @@
 		<script src="../../js/directives/srvSimpleMarkup.js"></script>
 		<script src="../../js/directives/srvRange.js"></script>
 		<script src="../../js/directives/srvColorPicker.js"></script>
-		<script src="../../js/directives/srvRating.js"></script>
 		<script src="../../js/directives/srvMultiselectDropdown.js"></script>
+		<script src="../../js/directives/srvD3Test.js"></script>
 
 		<!-- Controllers -->
+		<script src="../../js/controllers/examplePagesCtrl.js"></script>
 		<script src="../../js/controllers/srv-directive-examples/srvColorPickerCtrl.js"></script>
 		<script src="../../js/controllers/srv-directive-examples/srvRatingCtrl.js"></script>
 		<script src="../../js/controllers/srv-directive-examples/srvMultiselectDropdownCtrl.js"></script>
+		<script src="../../js/controllers/srv-directive-examples/srvD3TestCtrl.js"></script>
 
 		<script src="../../js/main.js"></script>
+		<script src="../../js/d3/pieChart.js"></script>
 
 
 		<!-- Examples' controllers  -->

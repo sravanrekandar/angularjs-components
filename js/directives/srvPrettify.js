@@ -3,25 +3,25 @@
 */
 (function(){
 	'use strict';
-	angular.module('srvNg.directives').directive('srvPrettify', function(){
+	angular.module('srvNg.directives').directive('srvPrettify', function($http){
 		return {
 			restrict: 'EA',
 			scope: {
 				fileName: '='
 			},
-			controller: ['$scope', '$http', function($scope, $http) {
-				$scope.getMarkup = function(filePath, callback) {
+			link: function(scope, iElement) {
+				var getMarkup = function(filePath, callback) {
 					$http({
 							method: 'GET',
 							url: filePath
 						}).success(function(data) {
 							data = data.replace(/</g,'&lt;');
+							data = data.replace(/>/g,'&gt;');
 							data = data.replace(/\t/g,'    ');
 							callback(data);
 						});
 				};
-			}],
-			link: function(scope, iElement, iAttrs) {
+
 				scope.insertMarkup = function(markup){
 					var htmlText = '<pre class="prettyprint linenums">' + markup + '</pre>';
 					iElement.html(htmlText);
@@ -29,7 +29,7 @@
 				};
 
 				if(typeof scope.fileName !== 'undefined') {
-					scope.getMarkup(scope.fileName, scope.insertMarkup);
+					getMarkup(scope.fileName, scope.insertMarkup);
 				} else {
 					scope.insertMarkup(iElement.html());
 				}

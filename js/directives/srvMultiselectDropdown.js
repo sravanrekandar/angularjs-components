@@ -10,7 +10,7 @@ var rootPath = rootPath || '/angularjs-components/';
             require: '?ngModel',
             scope: {
                 items: '=',
-                ngModel: '=',
+                selectedItems: '=ngModel',
                 onSelectionChange: '&',
                 defaultText: '@'
             },
@@ -18,30 +18,8 @@ var rootPath = rootPath || '/angularjs-components/';
             templateUrl: rootPath + 'templates/srvMultiselectdropdown.html',
             replace: true,
             link: function(scope, iElement, iAttrs){
-                scope.selectedItems = scope.ngModel;
-                scope.restrictsingle = (typeof iAttrs.restrictSingle !== 'undefined');
-                
-                scope.defaultDisplayText = iAttrs.defaultText || 'Select an Item';
-                scope.displayText = scope.defaultDisplayText;
-                scope.isOpen = false;
-
                 /******** private Methods ********/
-                function updateSelectedList() {
-                    angular.forEach(scope.selected , function(el) {
-                        angular.forEach(scope.items, function(elem, idx){
-                            var index;
-                            if(el[scope.uniqueId] === elem[scope.uniqueId]) {
-                                elem.selected = true;
-                                index = scope.selected .indexOf(el);
-                                scope.selected .splice(index, 1);
-                                scope.selected .splice(index, 0, elem);
-                            }
-                        });
-                    });
-                    scope.onSelectionChange();
-                }
-                
-                function updateDisplayText() {
+                var updateDisplayText = function () {
                     var str = '';
                     if(scope.restrictsingle) {
                         str = scope.selectedItems[0].name;
@@ -52,9 +30,8 @@ var rootPath = rootPath || '/angularjs-components/';
                     }
                     
                     scope.displayText = str;
-                }
-                
-                function addItem(item) {
+                },
+                addItem = function (item) {
                     if(scope.restrictsingle) { // Incase of normal select
                         scope.isOpen = false;
                         angular.forEach(scope.items, function(el) {
@@ -67,14 +44,25 @@ var rootPath = rootPath || '/angularjs-components/';
                             scope.selectedItems.push(item);
                         }
                     }
-                }
-
-                function removeItem(item) {
+                },
+                removeItem = function (item) {
                     var index = scope.selectedItems.indexOf(item);
                     if(index !== -1) {
                         scope.selectedItems.splice(index, 1);
                     }
-                }
+                },
+                hideDropDown = function(evt) {
+                    var target = angular.element(evt.target).closest(iElement);
+                    if(target.length === 0) {
+                        scope.isOpen = false;
+                        scope.$apply();
+                    }
+                };
+
+                scope.restrictsingle = (typeof iAttrs.restrictSingle !== 'undefined');
+                scope.defaultDisplayText = iAttrs.defaultText || 'Select an Item';
+                scope.displayText = scope.defaultDisplayText;
+                scope.isOpen = false;
 
                 /******** Public Methods ********/
                 scope.toggleSelect = function(item) {
@@ -90,21 +78,9 @@ var rootPath = rootPath || '/angularjs-components/';
                 scope.toggleDropdown = function() {
                     scope.isOpen = !scope.isOpen;
                 };
-                
-                // Close dropdown when user cliks elsewhere
-                $document.bind('click', function(evt) {
-
-                    var target = angular.element(evt.target).closest(iElement);
-
-                    if(target.length === 0) {
-                        scope.isOpen = false;
-                        scope.$apply();
-                    }
-                });
-
 
                 // Init
-                updateSelectedList();
+                $document.bind('click', hideDropDown);
             }
         };
     }]);

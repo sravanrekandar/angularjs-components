@@ -1,0 +1,10 @@
+<div class="color-typeahead-wrapper">
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<input type="text" class="form-control" ng-model="currentItem" typeahead="item as item.name for item in items | filter:$viewValue | limitTo:8" />
+			<pre>{{selectedItems|json}}</pre>
+			<pre>{{items|json}}</pre>
+		</div>
+		
+	</form>
+</div>

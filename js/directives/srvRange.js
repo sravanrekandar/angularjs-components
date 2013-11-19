@@ -14,8 +14,8 @@
 		return {
 			restrict: 'EA',
 			scope: {},
-			compile: function(tElement, tAttrs, transclude) {
-				var htmlText = tElement.html(),
+			compile: function(iElement) {
+				var htmlText = iElement.html(),
 					value = Number(htmlText),
 					min = 1,
 					max = 100;
@@ -26,9 +26,9 @@
 
 				// Html changes
 				htmlText = angular.element(rangeTemplate);
-				tElement.html(htmlText);
+				iElement.html(htmlText);
 
-				return function(scope, element, attrs) {
+				return function(scope) {
 					scope.rangeValue = value;
 					scope.minValue = min;
 					scope.maxValue = max;

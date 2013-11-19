@@ -4,11 +4,11 @@
 (function(){
 	'use strict';
 	angular.module('srvApp')
-		.controller('srvColorPickerCtrl', function($scope){
+		.controller('srvColorPickerCtrl', ['$scope', function($scope){
 			$scope.color = {
 				red: 10,
 				green: 10,
-				blue: 10
+				blue: 100
 			};
-		});
+		}]);
 }());

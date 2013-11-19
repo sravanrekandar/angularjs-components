@@ -4,7 +4,7 @@
 (function(){
 	'use strict';
 	angular.module('srvApp')
-		.controller('srvMultiselectDropdownCtrl', function($scope) {
+		.controller('srvMultiselectDropdownCtrl', ['$scope', function($scope) {
 			$scope.heros = [
 				{name: 'Peter Parker'},
 				{name: 'Bruce wayne'},
@@ -24,5 +24,5 @@
 			$scope.updateNewSelection = function() {
 				//.. 
 			};
-		});
+		}]);
 }());

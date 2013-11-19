@@ -3,7 +3,7 @@
 */
 (function () {
 	'use strict';
-	angular.module('srvApp', ['srvNg.directives'])
+	angular.module('srvApp', ['ui.bootstrap', 'srvNg.directives'])
 		.config(function($routeProvider) {
 			$routeProvider
 			.when('/home', {templateUrl: 'partials/home.html'})

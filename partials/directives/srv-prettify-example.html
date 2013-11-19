@@ -1,0 +1,23 @@
+<h3>srvPrettify</h3>
+<p>
+This directive grabs the html contents of the tag and prettifies them. If the tag contains the info about the file name, it gets the text from the file, prettifies and places inside the container. It uses bootstrap's prettify().
+</p>
+Examples: All the code snippets of the pages are prettified using this directive.
+
+<div class="code-snippets">
+	<ul class="nav nav-tabs">
+		<li class="active"><a role="tab" href="#srv-prettify-markup1">Usage</a></li>
+		<li><a role="tab" href="#srv-prettify-markup2">srvPrettify.js</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="srv-prettify-markup1">
+<div srv-prettify>&lt;srv-prettify>Your code&lt;/srv-prettify>
+&lt;srv-prettify file-name="your file name">&lt;/srv-prettify>
+</div>
+		</div>
+		<div class="tab-pane" id="srv-prettify-markup2">
+			<div srv-prettify file-name="'/angularjs-components/js/directives/srvPrettify.js'" >
+			</div>
+		</div>
+	</div>
+</div>

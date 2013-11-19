@@ -24,7 +24,6 @@ angular.module('FundooDirectiveTutorial', [])
         onRatingSelected: '&'
       },
       link: function (scope, elem, attrs) {
-
         var updateStars = function() {
           scope.stars = [];
           for (var  i = 0; i < scope.max; i++) {

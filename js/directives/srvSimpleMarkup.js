@@ -6,13 +6,12 @@
 	angular.module('srvNg.directives').directive('srvSimpleMarkup', function(){
 		return {
 			restrict: 'E',
-			link: function(scope, element, attrs) {
-				var htmlText = element.html();
+			link: function(scope, iElement) {
+				var htmlText = iElement.html();
 				// Html changes
 				htmlText = '<div class="well"> <input type="text" value="' + htmlText + '"</div>';
-				element.html(htmlText);
+				iElement.html(htmlText);
 			}
 		};
 	});
-
 }()); // End of global wrapper

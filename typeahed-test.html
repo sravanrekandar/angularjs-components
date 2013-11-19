@@ -1,0 +1,62 @@
+<!DCOTYPE html>
+<html ng-app="srvApp">
+<head>
+	<meta charset="utf-8" />
+	<link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+	
+	<div class='container-fluid' ng-controller="TypeaheadCtrl">
+		<pre>Model: {{selected| json}}</pre>
+		<pre>Model: {{selectedItems| json}}</pre>
+		<input type="text" class="form-control" ng-model="selected" typeahead="state as state.name for state in states | filter:$viewValue | limitTo:8">
+		<button class="btn btn-default btn-small" ng-click="add()">Add</button>
+		
+		<ul>
+			<li ng-repeat="s in selectedItems">{{s.name}}</li>
+		</ul>
+		
+		<hr />
+		<div ng-controller="srvTypeaheadCtrl">
+			<input type="text" class="form-control" ng-model="currentItem" typeahead="state as state.name for state in states | filter:$viewValue | limitTo:8">
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="js/vendor/ui-bootstrap-0.6.0.min.js"></script>
+	<script type="text/javascript" src="js/vendor/ui-bootstrap-tpls-0.6.0.js"></script>
+	<
+	<script>
+		(function(){
+			'use strict';
+			angular.module('srvApp', ['ui.bootstrap'])
+				.controller('TypeaheadCtrl',function TypeaheadCtrl($scope) {
+
+				$scope.selected = undefined;
+				$scope.selectedItems = [];
+				$scope.states = [{"name":"Alabama","id":"Alabama"},{"name":"Alaska","id":"Alaska"},{"name":"Arizona","id":"Arizona"},{"name":"Arkansas","id":"Arkansas"},{"name":"California","id":"California"},{"name":"Colorado","id":"Colorado"},{"name":"Connecticut","id":"Connecticut"},{"name":"Delaware","id":"Delaware"},{"name":"Florida","id":"Florida"},{"name":"Georgia","id":"Georgia"},{"name":"Hawaii","id":"Hawaii"},{"name":"Idaho","id":"Idaho"},{"name":"Illinois","id":"Illinois"},{"name":"Indiana","id":"Indiana"},{"name":"Iowa","id":"Iowa"},{"name":"Kansas","id":"Kansas"},{"name":"Kentucky","id":"Kentucky"},{"name":"Louisiana","id":"Louisiana"},{"name":"Maine","id":"Maine"},{"name":"Maryland","id":"Maryland"},{"name":"Massachusetts","id":"Massachusetts"},{"name":"Michigan","id":"Michigan"},{"name":"Minnesota","id":"Minnesota"},{"name":"Mississippi","id":"Mississippi"},{"name":"Missouri","id":"Missouri"},{"name":"Montana","id":"Montana"},{"name":"Nebraska","id":"Nebraska"},{"name":"Nevada","id":"Nevada"},{"name":"New Hampshire","id":"New Hampshire"},{"name":"New Jersey","id":"New Jersey"},{"name":"New Mexico","id":"New Mexico"},{"name":"New York","id":"New York"},{"name":"North Dakota","id":"North Dakota"},{"name":"North Carolina","id":"North Carolina"},{"name":"Ohio","id":"Ohio"},{"name":"Oklahoma","id":"Oklahoma"},{"name":"Oregon","id":"Oregon"},{"name":"Pennsylvania","id":"Pennsylvania"},{"name":"Rhode Island","id":"Rhode Island"},{"name":"South Carolina","id":"South Carolina"},{"name":"South Dakota","id":"South Dakota"},{"name":"Tennessee","id":"Tennessee"},{"name":"Texas","id":"Texas"},{"name":"Utah","id":"Utah"},{"name":"Vermont","id":"Vermont"},{"name":"Virginia","id":"Virginia"},{"name":"Washington","id":"Washington"},{"name":"West Virginia","id":"West Virginia"},{"name":"Wisconsin","id":"Wisconsin"},{"name":"Wyoming","id":"Wyoming"}];
+				
+				$scope.add = function() {
+					var index = $scope.selectedItems.indexOf($scope.selected);
+					if(typeof $scope.selected !== 'string' && index === -1) {
+						 $scope.selectedItems.push($scope.selected);
+					}
+				};
+			});
+			
+			/*
+			var x = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+			var y = []
+			for(var i = 0; i < x.length; i++) {
+				y.push({
+					'name': x[i],
+					'id': x[i]
+				});
+			}
+			console.log(JSON.stringify(y));
+			*/
+		}());
+	</script>
+	<script type="text/javascript" src="js/controllers/srv-directive-examples/srvTypeaheadCtrl.js"></script>
+</body>
+</html>
