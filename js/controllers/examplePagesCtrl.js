@@ -8,7 +8,8 @@
 			'/angularjs-components/partials/directives/srv-color-picker-example.html',
 			'/angularjs-components/partials/directives/srv-multiselect-dropdown-example.html',
 			'/angularjs-components/partials/directives/srv-prettify-example.html',
-			'/angularjs-components/partials/directives/srv-d3-test-example.html'
+			'/angularjs-components/partials/directives/srv-d3-test-example.html',
+			'/angularjs-components/partials/directives/srv-text-highlight-example.html'
 		];
 	});
 }());

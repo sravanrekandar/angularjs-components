@@ -1,0 +1,27 @@
+<h3>srvTextHighlight</h3>
+<p>
+Text highlight example
+</p>
+<div ng-controller="srvTextHighLightCtrl">
+	<input ng-model="myText" />
+	<p srv-text-highlight="myText">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</p>
+</div>
+
+<div class="code-snippets">
+	<ul class="nav nav-tabs">
+		<li class="active"><a role="tab" href="#srv-text-highlight1">Usage</a></li>
+		<li><a role="tab" href="#srv-text-highlight2">srvSimpleMarkup.js</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="srv-text-highlight1">
+<srv-prettify>&lt;input ng-model="text" />
+&lt;p srv-text-highlight="text">Paragraph contents..&lt;/p></srv-prettify>
+		</div>
+		<div class="tab-pane" id="srv-text-highlight2">
+			<div srv-prettify file-name="'/angularjs-components/js/directives/srvTextHighlight.js'" >
+			</div>
+		</div>
+	</div>
+</div>

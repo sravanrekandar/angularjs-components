@@ -1,0 +1,11 @@
+.clear {
+	clear: both;
+}
+.message-log {
+	font-size: 80%; 
+	height: 70px;
+	overflow: auto;
+}
+table.selected-users td{
+	vertical-align: middle;
+}
