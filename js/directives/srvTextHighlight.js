@@ -16,7 +16,6 @@
 				var highlight = function(){
 					var htmlText = scope.elementText;
 					var reg = new RegExp(scope.filter, 'gi');
-					htmlText.replace(reg, 'SRAVAN');
 					htmlText = htmlText.replace(reg,'<span style="background-color:#FFFF00;">' + scope.filter + '</span>');
 					scope.element.html(htmlText);
 				};
